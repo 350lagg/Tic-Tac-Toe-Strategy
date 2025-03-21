@@ -11,3 +11,8 @@ public:
     char get(int i, int j) const;
     void set(int i, int j, char value);
 };
+
+class TreeNode
+{
+    
+};
