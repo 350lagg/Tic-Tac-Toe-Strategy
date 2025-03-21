@@ -24,3 +24,15 @@ public:
 
 	TreeNode(const GameField& f, int node_id) : field(f), id(node_id), parent(nullptr) {}
 };
+
+enum ErrorType
+{
+    noError,
+    inputFileError,
+    outputFileError,
+    manyLinesError,
+    notEnoughLinesError,
+    lineLengthError,
+    lineContentError,
+    impossibleConfigurationError
+};
