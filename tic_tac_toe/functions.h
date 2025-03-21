@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <vector>
+using namespace std;
 
 class GameField
 {
@@ -14,5 +16,11 @@ public:
 
 class TreeNode
 {
-    
+public:
+	TreeNode* parent;
+	vector<TreeNode*> children;
+	int id;
+	GameField field;
+
+	TreeNode(const GameField& f, int node_id) : field(f), id(node_id), parent(nullptr) {}
 };
