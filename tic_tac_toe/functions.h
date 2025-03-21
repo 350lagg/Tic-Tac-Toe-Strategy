@@ -36,3 +36,12 @@ enum ErrorType
     lineContentError,
     impossibleConfigurationError
 };
+
+struct Error
+{
+    ErrorType type;
+    string file_path;
+    int lines_count;
+    int line_length;
+    char invalid_char;
+};
