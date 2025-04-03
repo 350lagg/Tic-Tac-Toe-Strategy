@@ -25,7 +25,7 @@ void  GameField::set(int i, int j, char value)
         board[i][j] = value;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 	//Считывание и проверка файлов
     //Если проверка данных файлов не прошла

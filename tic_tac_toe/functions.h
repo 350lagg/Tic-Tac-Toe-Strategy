@@ -45,3 +45,7 @@ struct Error
     int line_length;
     char invalid_char;
 };
+
+//—читывание и проверка файлов
+Error readFiles(const string& inputPath, const string& outputPath, char board[3][3]);
+
