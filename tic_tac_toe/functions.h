@@ -49,3 +49,5 @@ struct Error
 //Считывание и проверка файлов
 Error readFiles(const string& inputPath, const string& outputPath, char board[3][3]);
 
+//Работа главной вычислительной функции для нахождения дерева ходов в крестики-нолики
+TreeNode* generateBestStrategy(int EndValue, int minEndValue, char ChosenPlayer, char CurrentPlayer, bool isBestMoveFound, char CurrentBoard[3][3], GameField field);
