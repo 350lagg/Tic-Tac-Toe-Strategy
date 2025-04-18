@@ -105,6 +105,14 @@ TreeNode* generateBestStrategy(int EndValue, int minEndValue, char ChosenPlayer,
     //Вернуть древо оптимальной стратегии
 }
 
+int checkField(char position[3][3], char chosenPlayer, char opponentPlayer, char emptySymbol)
+{
+    //Проверка строк и столбцов
+    //Проверка столбцов
+    //Проверка диагоналей
+    //Проверка что поле еще не заполнено
+}
+
 int main(int argc, char* argv[])
 {
 	//Считывание и проверка файлов
