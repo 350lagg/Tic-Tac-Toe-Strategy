@@ -54,3 +54,6 @@ TreeNode* generateBestStrategy(int EndValue, int minEndValue, char ChosenPlayer,
 
 //Проверка если есть победитель и заполнено ли поле
 int checkField(char position[3][3], char chosenPlayer, char opponentPlayer, char emptySymbol);
+
+//Запись древа в формат .dot
+void writeDot(TreeNode* node, ofstream& out, int& idCounter);
