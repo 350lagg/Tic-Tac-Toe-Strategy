@@ -31,10 +31,6 @@ Error readFiles(const string& inputPath, const string& outputPath, char board[3]
     {
         //Завершение работы программы, вернуть индекс ошибки inputFileError
     }
-    //Если выходной файл не открылся
-    {
-        //Завершение работы программы, вернуть индекс ошибки outputFileError
-    }
     //Если не прошла проверка на количество строк
     {
         //Завершение работы программы, вернуть индекс ошибки manyLinesError или notEnoughLinesError в зависимости от отклонения количества строк
@@ -126,6 +122,19 @@ void writeDot(TreeNode* node, ofstream& out, int& idCounter)
         //Записать связь
         //Рекурсивно вызвать функцию
     }
+}
+
+void exportTreeToDot(TreeNode* root, const string& filename)
+{
+    //Открыть выходной файл
+    //Если выходной файл не открывается
+    {
+        //Завершение работы программы, вернуть ошибку outputFileError
+    }
+    //Записать digraph G {
+    //Запись древа в формат .dot
+    //Записать }
+    //Закрыть файл
 }
 
 int main(int argc, char* argv[])
