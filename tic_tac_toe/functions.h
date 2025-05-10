@@ -57,3 +57,6 @@ int checkField(char position[3][3], char chosenPlayer, char opponentPlayer, char
 
 //Запись древа в формат .dot
 void writeDot(TreeNode* node, ofstream& out, int& idCounter);
+
+//Запись древа ходов в файл в формате .dot
+void exportTreeToDot(TreeNode* root, const string& filename);
