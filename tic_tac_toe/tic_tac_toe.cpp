@@ -113,6 +113,21 @@ int checkField(char position[3][3], char chosenPlayer, char opponentPlayer, char
     //Проверка что поле еще не заполнено
 }
 
+void writeDot(TreeNode* node, ofstream& out, int& idCounter)
+{
+    //Запомнить текущий номер записи
+    //Для каждого знака поля
+    {
+        //Записать его в строку
+    }
+    //Вывести строку в нужном формате
+    //Для каждого потомка в древе
+    {
+        //Записать связь
+        //Рекурсивно вызвать функцию
+    }
+}
+
 int main(int argc, char* argv[])
 {
 	//Считывание и проверка файлов
