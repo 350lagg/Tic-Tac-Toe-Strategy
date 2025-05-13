@@ -25,6 +25,38 @@ void  GameField::set(int i, int j, char value)
         board[i][j] = value;
 }
 
+void GameField::getBoard(char dest[3][3]) const
+{
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            dest[i][j] = board[i][j];
+}
+
+bool GameField::isFull() const
+{
+
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            if (board[i][j] == '.')
+                return false;
+    return true;
+}
+
+bool GameField::hasWinner(char player) const
+{
+    for (int i = 0; i < 3; ++i)
+        if (board[i][0] == player && board[i][1] == player && board[i][2] == player)
+            return true;
+    for (int j = 0; j < 3; ++j)
+        if (board[0][j] == player && board[1][j] == player && board[2][j] == player)
+            return true;
+    if (board[0][0] == player && board[1][1] == player && board[2][2] == player)
+        return true;
+    if (board[0][2] == player && board[1][1] == player && board[2][0] == player)
+        return true;
+    return false;
+}
+
 Error readFiles(const string& inputPath, const string& outputPath, char board[3][3])
 {
     //Если входной файл не открылся

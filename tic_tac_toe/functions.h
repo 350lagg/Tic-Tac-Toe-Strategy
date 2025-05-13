@@ -12,6 +12,9 @@ public:
     GameField(char b[3][3]);
     char get(int i, int j) const;
     void set(int i, int j, char value);
+    void getBoard(char dest[3][3]) const;
+    bool isFull() const;
+    bool hasWinner(char player) const;
 };
 
 class TreeNode
