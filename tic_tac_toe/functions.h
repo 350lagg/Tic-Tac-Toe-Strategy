@@ -68,3 +68,5 @@ void writeDot(TreeNode* node, ofstream& out, int& idCounter);
 //Запись древа ходов в файл в формате .dot
 void exportTreeToDot(TreeNode* root, const string& filename);
 
+//Найти лучший ход
+EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer);
