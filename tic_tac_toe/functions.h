@@ -49,6 +49,13 @@ struct Error
     char invalid_char;
 };
 
+struct EvalResult
+{
+    int outcome; // минимальный исход
+    int wins;    // количесвто побед
+    GameField move;
+};
+
 //Считывание и проверка файлов
 Error readFiles(const string& inputPath, const string& outputPath, char board[3][3]);
 
@@ -60,3 +67,4 @@ void writeDot(TreeNode* node, ofstream& out, int& idCounter);
 
 //Запись древа ходов в файл в формате .dot
 void exportTreeToDot(TreeNode* root, const string& filename);
+
