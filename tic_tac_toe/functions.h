@@ -20,12 +20,11 @@ public:
 class TreeNode
 {
 public:
-	TreeNode* parent;
-	vector<TreeNode*> children;
-	int id;
-	GameField field;
+    int id;
+    GameField field;
+    vector<TreeNode*> children;
 
-	TreeNode(const GameField& f, int node_id) : field(f), id(node_id), parent(nullptr) {}
+    TreeNode(const GameField& f, int node_id) : field(f), id(node_id) {}
 };
 
 enum ErrorType
