@@ -56,7 +56,7 @@ struct EvalResult
 };
 
 //Считывание и проверка файлов
-Error readFiles(const string& inputPath, const string& outputPath, char board[3][3]);
+Error readInput(const string& filename, char board[3][3], char& player);
 
 //Работа главной вычислительной функции для нахождения дерева ходов в крестики-нолики
 TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char currentPlayer, int& nodeId);
