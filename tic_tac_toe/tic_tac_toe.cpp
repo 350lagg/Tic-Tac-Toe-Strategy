@@ -96,6 +96,8 @@ Error readInput(const string& filename, char board[3][3], char& player)
         //Завершение работы программы, вернуть индекс ошибки notEnoughLinesError
     }
     //вернуть индекс ошибки noError
+    Error a;
+    return a;
 }
 
 TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char currentPlayer, int& nodeId)
@@ -124,6 +126,15 @@ TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char curre
         }
     }
     //Вернуть элемент древа ходов
+    char board[3][3] =
+    {
+        {'.', '.', '.'},
+        {'.', '.', '.'},
+        {'.', '.', '.'}
+    };
+    GameField rootField(board);
+    TreeNode* a = new TreeNode(rootField, 0);
+    return a;
 }
 
 EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer)
@@ -166,6 +177,8 @@ EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer)
     }
     //Считаем общее количество побед для хода
     //Возвращаем минимальный исход, количество побед и лучший ход
+    EvalResult a;
+    return a;
 }
 
 void writeDot(TreeNode* node, ofstream& out, int& idCounter)

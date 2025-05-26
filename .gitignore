@@ -6,3 +6,13 @@
 /tic_tac_toe/tic_tac_toe.vcxproj
 /tic_tac_toe/tic_tac_toe.vcxproj.filters
 /tic_tac_toe/tic_tac_toe.vcxproj.user
+
+/Test_generateStrategyTree/x64
+/Test_generateStrategyTree/Test_generateStrategyTree.vcxproj
+/Test_generateStrategyTree/Test_generateStrategyTree.vcxproj.filters
+/Test_generateStrategyTree/Test_generateStrategyTree.vcxproj.user
+
+/Test_evaluateGame/x64
+/Test_evaluateGame/Test_evaluateGame.vcxproj
+/Test_evaluateGame/Test_evaluateGame.vcxproj.filters
+/Test_evaluateGame/Test_evaluateGame.vcxproj.user
