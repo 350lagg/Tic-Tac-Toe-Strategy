@@ -230,14 +230,23 @@ void writeDot(TreeNode* node, ofstream& out, int& idCounter)
 void exportTreeToDot(TreeNode* root, const string& filename)
 {
     //Открыть выходной файл
+    ofstream out(filename);
     //Если выходной файл не открывается
+    if (!out)
     {
         //Завершение работы программы, вернуть ошибку
+        cerr << "Ошибка записи в " << filename << endl;
+        return;
     }
     //Записать digraph G {
+    out << "digraph G {\n";
     //Запись древа в формат .dot
+    int idCounter = 0;
+    writeDot(root, out, idCounter);
     //Записать }
+    out << "}\n";
     //Закрыть файл
+    out.close();
 }
 
 int main(int argc, char* argv[])
