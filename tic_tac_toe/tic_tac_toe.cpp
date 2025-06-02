@@ -201,18 +201,29 @@ EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer)
 void writeDot(TreeNode* node, ofstream& out, int& idCounter)
 {
     //Запомнить текущий номер записи
+    int currentId = node->id;
+    string label;
     //Для каждого знака поля
+    for (int i = 0; i < 3; ++i)
     {
-        
+        for (int j = 0; j < 3; ++j)
+        {
             //Записать его в строку
-
+            label += node->field.get(i, j);
+            if (j < 2) label += " ";
+        }
+        if (i < 2) label += "\\n";
     }
     //Вывести строку в нужном формате
+    out << "  node" << currentId << " [label=\"" << label << "\", fontname=\"courier\"];\n";
 
     //Для каждого потомка в древе
+    for (TreeNode* child : node->children)
     {
         //Записать связь
+        out << "  node" << currentId << " -> node" << child->id << ";\n";
         //Рекурсивно вызвать функцию
+        writeDot(child, out, idCounter);
     }
 }
 
