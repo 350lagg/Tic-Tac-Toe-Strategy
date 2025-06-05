@@ -140,8 +140,7 @@ TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char curre
     //Иначе
     {
         //Для всех символов поля
-        {
-                //Если символ пустой
+        {       //Если символ пустой
                 {
                     //Запомнить положение поля
                     //Заменить в запомненном положении текущий символ на знак выбранного игрока
@@ -157,45 +156,83 @@ TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char curre
 EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer)
 {
     //Записать символ оппонента основываясь на символе выбранного игрока
+    char opponent = (curPlayer == 'X') ? 'O' : 'X';
     //Проверить поле на конец игры 
     //Если игра окончена вернуть величину исхода
+    if (field.hasWinner(maximizingPlayer)) return { 1, 1, field };
+    if (field.hasWinner(opponent)) return { -1, 0, field };
+    if (field.isFull()) return { 0, 0, field };
+    vector<EvalResult> results;
     //Для каждого символа поля
+    for (int i = 0; i < 3; ++i)
     {
+        for (int j = 0; j < 3; ++j)
+        {
             //Если символ пустой
+            if (field.get(i, j) == '.')
             {
                 //Запомнить положение поля
+                GameField newField = field;
                 //Заменить в запомненном положении текущий символ на знак выбранного игрока 
+                newField.set(i, j, curPlayer);
                 //Рекурсивно вызвать функцию считая текущим положением поля последний ход для оппонента
+                EvalResult result = evaluateGame(newField, opponent, maximizingPlayer);
                 //Запомнить результат
+                result.move = newField;
+                results.push_back(result);
             }
-        
+        }
     }
     //Для результата
+    for (const EvalResult& r : results)
     {
         //Если ход – мгновенная победа
+        if (r.outcome == 1 && curPlayer == maximizingPlayer && r.move.hasWinner(maximizingPlayer))
         {
             //Вернуть величины исхода и ход
+            return { 1, 1, r.move };
         }
         //Если ход – мгновенная победа противника
+        if (r.outcome == -1 && curPlayer != maximizingPlayer && r.move.hasWinner((maximizingPlayer == 'X') ? 'O' : 'X'))
         {
             //Вернуть величины исхода и ход
+            return { -1, 0, r.move };
         }
     }
 
     //Запомнить результаты
+    EvalResult best = results[0];
     //Для результатов
+    for (const EvalResult& r : results)
     {
         //Если текущий игрок-выбранный игрок
+        if (curPlayer == maximizingPlayer)
         {
             //Выбираем лучший ход
+            if (r.outcome > best.outcome || (r.outcome == best.outcome && r.wins > best.wins))
+            {
+                //Выбираем лучший ход
+                best = r;
+            }
         }
         //Иначе
+        else
         {
             //Рассматриваем все ходы
+            if (r.outcome < best.outcome || (r.outcome == best.outcome && r.wins < best.wins))
+            {
+                best = r;
+            }
         }
     }
     //Считаем общее количество побед для хода
+    int totalWins = 0;
+    for (const EvalResult& r : results)
+    {
+        totalWins += r.wins;
+    }
     //Возвращаем минимальный исход, количество побед и лучший ход
+    return { best.outcome, totalWins, best.move };
 }
 
 void writeDot(TreeNode* node, ofstream& out, int& idCounter)
