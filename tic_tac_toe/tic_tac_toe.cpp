@@ -128,29 +128,50 @@ Error readInput(const string& filename, char board[3][3], char& player)
 TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char currentPlayer, int& nodeId)
 {
     //Записать новый узел как текущий
+    TreeNode* node = new TreeNode(position, nodeId++);
     //Запомнить символ оппонента основываясь на символе выбранного игрока
+    char opponent = (currentPlayer == 'X') ? 'O' : 'X';
     //Проверить поле на конец игры 
     //Если игра окончена вернуть текущий узел
+    if (position.hasWinner('X') || position.hasWinner('O') || position.isFull())
+    {
+        return node;
+    }
     //Если текущий игрок выбранный игрок 
+    if (currentPlayer == chosenPlayer)
     {
         //Найти лучший ход#
+        EvalResult best = evaluateGame(position, currentPlayer, chosenPlayer);
         //Рекурсивно вызвать функцию считая текущим положением лучший ход для оппонента
+        TreeNode* bestChild = generateStrategyTree(best.move, chosenPlayer, opponent, nodeId);
         //Записать лучший ход в древо
+        node->children.push_back(bestChild);
     }
     //Иначе
+    else
     {
         //Для всех символов поля
-        {       //Если символ пустой
+        for (int i = 0; i < 3; ++i)
+        {
+            for (int j = 0; j < 3; ++j)
+            {
+                //Если символ пустой
+                if (position.get(i, j) == '.')
                 {
                     //Запомнить положение поля
+                    GameField newField = position;
                     //Заменить в запомненном положении текущий символ на знак выбранного игрока
+                    newField.set(i, j, currentPlayer);
                     //Рекурсивно вызвать функцию считая текущим положением последний ход для выбранного игрока
+                    TreeNode* child = generateStrategyTree(newField, chosenPlayer, opponent, nodeId);
                     //Записать последний ход в древо
+                    node->children.push_back(child);
                 }
-            
+            }
         }
     }
     //Вернуть элемент древа ходов
+    return node;
 }
 
 EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer)
