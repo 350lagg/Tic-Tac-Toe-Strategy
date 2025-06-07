@@ -321,8 +321,8 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    string inputFile(argv[1]);
-    string outputFile(argv[2]);
+    string inputFile=argv[1];
+    string outputFile=argv[2];
 
     char board[3][3], player;
     string errName;
