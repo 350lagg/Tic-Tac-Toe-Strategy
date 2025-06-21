@@ -1,3 +1,7 @@
+/*!
+* \file
+* \brief Данный файл содержит тесты для функции evaluateGame.
+*/
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "../tic_tac_toe/functions.h"
@@ -279,8 +283,8 @@ namespace TestevaluateGame
 			};
 			int outcome = 0;
 			int	wins = 0;
-			char player = 'X';
-			char curPlayer = 'X';
+			char player = 'O';
+			char curPlayer = 'O';
 			GameField start(board);
 			EvalResult res = evaluateGame(start, curPlayer, player);
 			char expMove[3][3] =

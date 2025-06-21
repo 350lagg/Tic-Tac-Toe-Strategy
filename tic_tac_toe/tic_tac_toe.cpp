@@ -1,4 +1,8 @@
-﻿#include "functions.h"
+﻿/*!
+* \file
+* \brief Данный файл содержит в себе реализацию функций, которые используются в ходе работы программы tic_tac_toe.
+*/
+#include "functions.h"
 
 GameField::GameField()
 {
@@ -57,6 +61,9 @@ bool GameField::hasWinner(char player) const
     return false;
 }
 
+/*!
+ * \details Считывание и проверка файлов
+ */
 Error readInput(const string& filename, char board[3][3], char& player)
 {
     ifstream in(filename);
@@ -125,6 +132,9 @@ Error readInput(const string& filename, char board[3][3], char& player)
     return { noError, "", 0, 0, '\0' };
 }
 
+/*!
+ * \details Работа главной вычислительной функции для нахождения дерева ходов в крестики-нолики
+ */
 TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char currentPlayer, int& nodeId)
 {
     //Записать новый узел как текущий
@@ -174,6 +184,9 @@ TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char curre
     return node;
 }
 
+/*!
+ * \details Найти лучший ход
+ */
 EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer)
 {
     //Записать символ оппонента основываясь на символе выбранного игрока
@@ -256,6 +269,9 @@ EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer)
     return { best.outcome, totalWins, best.move };
 }
 
+/*!
+ * \details Запись древа в формат .dot
+ */
 void writeDot(TreeNode* node, ofstream& out, int& idCounter)
 {
     //Запомнить текущий номер записи
@@ -285,6 +301,9 @@ void writeDot(TreeNode* node, ofstream& out, int& idCounter)
     }
 }
 
+/*!
+ * \details Запись древа ходов в файл в формате .dot
+ */
 void exportTreeToDot(TreeNode* root, const string& filename)
 {
     //Открыть выходной файл

@@ -1,5 +1,32 @@
-#include "tic_tac_toe.cpp"
+/*!
+* \file
+* \brief Данный файл содержит главную функцию программы tic_tac_toe.
+*
+* \mainpage Документация для программы "Tic Tac Toe Strategy" (tic_tac_toe)
+Программа предназначена для нахождения древа оптимальной стратегии для игры крестики нолики для заданной конфигурации.
+Для функционирования программы необходима операционная система Windows 7 или выше.
+Программа разработана на языке С++ с использованием стандартных библиотек C++ в среде разработки Microsoft Visual Studio.
+Программа должна получать два аргумента командной строки: имя входного файла и имя выходного файла в формате 'txt'
 
+Пример команды запуска программы:
+* \code
+./tic_tac_toe.exe ./input.txt ./output.txt
+* \endcode
+
+* \author Grechishnikov Ivan
+* \date June 2025
+* \version 1.0
+*/
+#include "tic_tac_toe.cpp"
+/*!
+ * \brief Главная функция программы
+ * \param [in] argc - количество переданных аргументов командной строки
+ * \param [in] argv - аргументы командной строки
+ * \param [in] argv[0] - аргумент запуска программы
+ * \param [in] argv[1] - путь к входному файлу
+ * \param [in] argv[2] - путь к выходному файлу
+ * \return 0 - программа завершилась без исключений
+ */
 int main(int argc, char* argv[])
 {
     //Устанавливаем русский язык
@@ -58,6 +85,7 @@ int main(int argc, char* argv[])
     }
     if (xCount != oCount && xCount != oCount + 1)
     {
+        err = { impossibleConfigurationError,"",0,0,'\0' };
         errName = "Ошибка: невозможная конфигурация начального поля";
         cerr << errName << endl;
         return 1;

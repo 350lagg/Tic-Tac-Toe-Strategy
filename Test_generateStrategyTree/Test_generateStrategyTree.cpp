@@ -1,3 +1,7 @@
+/*!
+* \file
+* \brief Данный файл содержит тесты для функции generateStrategyTree.
+*/
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "../tic_tac_toe/functions.h"
