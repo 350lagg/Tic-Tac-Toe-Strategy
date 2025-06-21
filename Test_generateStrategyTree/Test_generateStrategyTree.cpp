@@ -1,6 +1,6 @@
-/*!
+п»ї/*!
 * \file
-* \brief Данный файл содержит тесты для функции generateStrategyTree.
+* \brief Р”Р°РЅРЅС‹Р№ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С‚РµСЃС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё generateStrategyTree.
 */
 #include "pch.h"
 #include "CppUnitTest.h"
@@ -91,7 +91,7 @@ namespace TestgenerateStrategyTree
                 }
             }
 
-            Assert::IsTrue(treesEqual, L"Сгенерированное дерево не соответствует ожидаемому");
+            Assert::IsTrue(treesEqual, L"РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅРѕРµ РґРµСЂРµРІРѕ РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РѕР¶РёРґР°РµРјРѕРјСѓ");
         }
 
         TEST_METHOD(ChosenPlayerX)

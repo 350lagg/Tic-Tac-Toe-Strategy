@@ -1,6 +1,6 @@
-/*!
+п»ї/*!
 * \file
-* \brief Данный файл содержит тесты для функции evaluateGame.
+* \brief Р”Р°РЅРЅС‹Р№ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С‚РµСЃС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё evaluateGame.
 */
 #include "pch.h"
 #include "CppUnitTest.h"
@@ -41,7 +41,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей 
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№ 
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -78,7 +78,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -115,7 +115,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей 
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№ 
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -152,7 +152,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -189,7 +189,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -226,7 +226,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -263,7 +263,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -300,7 +300,7 @@ namespace TestevaluateGame
 			Assert::AreEqual(expRes.outcome, res.outcome);
 			Assert::AreEqual(expRes.wins, res.wins);
 
-			// Сравнение полей
+			// РЎСЂР°РІРЅРµРЅРёРµ РїРѕР»РµР№
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
