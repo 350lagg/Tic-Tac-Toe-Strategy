@@ -42,7 +42,7 @@ public:
     * \param[in] j - номер элемента в строке
     * \param[in] value - символ для вставки
     */
-    void set(int i, int j, char value); 
+    void set(int i, int j, char value);
 
     /*!
     * \brief получение всего поля
@@ -52,13 +52,27 @@ public:
 
     /*!
     * \brief проверка заполнености поля
+    * \return true поле заполнено
+    * \return false поле не заполнено
     */
     bool isFull() const;
 
     /*!
     * \brief проверка победителя
+    * \param[in] player - символ проверяемого игрока
+    * \return true есть победитель
+    * \return false нет победителя
     */
     bool hasWinner(char player) const;
+};
+
+/*!
+* \brief Структура результата хода
+*/
+struct EvalResult
+{
+    int outcome; //!< исход игры (1 - победа, 0 - ничья, -1 - поражение)
+    int wins;    //!< количество победных путей
 };
 
 /*!
@@ -69,16 +83,17 @@ class TreeNode
 public:
     int id; //!< номер записи
     GameField field; //!< положение поля
-    vector<TreeNode*> children; //!< потомок
+    vector<TreeNode*> children; //!< потомки
+    EvalResult result; //!< результат оценки позиции
 
     /*!
     * \brief Конструктор класса TreeNode
     */
-    TreeNode(const GameField& f, int node_id) : field(f), id(node_id) {}
+    TreeNode(const GameField& f, int node_id) : field(f), id(node_id), result({ 0,0 }) {}
 };
 
 /*!
-* \brief Перечисление типов ошибок, которые могут возникнуть с входными данными
+* \brief Перечисление типов ошибок
 */
 enum ErrorType
 {
@@ -102,16 +117,6 @@ struct Error
     int lines_count; //!< номер строки
     int line_length; //!< позиция в строке
     char invalid_char; //!< неверный символ
-};
-
-/*!
-* \brief Структура результата хода
-*/
-struct EvalResult
-{
-    int outcome; //!< минимальный исход
-    int wins;    //!< количество побед
-    GameField move; //!< положение поля
 };
 
 /*!
@@ -147,11 +152,3 @@ void writeDot(TreeNode* node, ofstream& out, int& idCounter);
 * \param [in] filename - путь к файлу для записи в формате string
 */
 void exportTreeToDot(TreeNode* root, const string& filename);
-
-/*!
-* \brief Функция для нахождения лучшего хода
-* \param [in] field - положение на поле
-* \param [in] curPlayer - текущий игрок
-* \param [in] maximizingPlayer - выбранный игрок
-*/
-EvalResult evaluateGame(GameField field, char curPlayer, char maximizingPlayer);
