@@ -90,6 +90,12 @@ public:
     * \brief Конструктор класса TreeNode
     */
     TreeNode(const GameField& f, int node_id) : field(f), id(node_id), result({ 0,0 }) {}
+
+    /*!
+    * \brief Подсчет узлов древа
+    * \return количество узлов древа
+    */
+    int countNodes() const;
 };
 
 /*!

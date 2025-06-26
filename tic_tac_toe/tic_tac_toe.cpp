@@ -66,6 +66,16 @@ bool GameField::hasWinner(char player) const
     return false;
 }
 
+int TreeNode::countNodes() const 
+{
+    int count = 1;
+    for (const TreeNode* child : children) 
+    {
+        count += child->countNodes();
+    }
+    return count;
+}
+
 /*!
  * \details Считывание и проверка файлов
  */

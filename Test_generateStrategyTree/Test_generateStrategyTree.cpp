@@ -108,7 +108,8 @@ namespace TestgenerateStrategyTree
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
             int expEndId = 2;
-            Assert::AreEqual(expEndId, nodeId);
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(ChosenPlayerO)
@@ -124,8 +125,9 @@ namespace TestgenerateStrategyTree
             char player = 'O';
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
-            int expEndId = 40;
-            Assert::AreEqual(expEndId, nodeId);
+            int expEndId = 42;
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(EqualXAndO)
@@ -142,7 +144,8 @@ namespace TestgenerateStrategyTree
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
             int expEndId = 6;
-            Assert::AreEqual(expEndId, nodeId);
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(X1MoreThanO)
@@ -159,7 +162,8 @@ namespace TestgenerateStrategyTree
             char currentPlayer = 'O';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
             int expEndId = 24;
-            Assert::AreEqual(expEndId, nodeId);
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(EmptyBoard)
@@ -175,8 +179,9 @@ namespace TestgenerateStrategyTree
             char player = 'X';
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
-            int expEndId = 530;
-            Assert::AreEqual(expEndId, nodeId);
+            int expEndId = 478;
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(oneElOnBoard)
@@ -192,8 +197,9 @@ namespace TestgenerateStrategyTree
             char player = 'X';
             char currentPlayer = 'O';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
-            int expEndId = 529;
-            Assert::AreEqual(expEndId, nodeId);
+            int expEndId = 477;
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(twoElsOnBoard)
@@ -209,8 +215,9 @@ namespace TestgenerateStrategyTree
             char player = 'X';
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
-            int expEndId = 102;
-            Assert::AreEqual(expEndId, nodeId);
+            int expEndId = 90;
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(emptyHalfOfBoard)
@@ -227,7 +234,8 @@ namespace TestgenerateStrategyTree
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
             int expEndId = 14;
-            Assert::AreEqual(expEndId, nodeId);
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(oneEmptySlot)
@@ -244,7 +252,8 @@ namespace TestgenerateStrategyTree
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
             int expEndId = 2;
-            Assert::AreEqual(expEndId, nodeId);
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 
         TEST_METHOD(fullBoard)
@@ -261,7 +270,8 @@ namespace TestgenerateStrategyTree
             char currentPlayer = 'X';
             TreeNode* root = generateStrategyTree(start, player, currentPlayer, nodeId);
             int expEndId = 1;
-            Assert::AreEqual(expEndId, nodeId);
+            int totalNodes = root->countNodes();
+            Assert::AreEqual(expEndId, totalNodes);
         }
 	};
 }
