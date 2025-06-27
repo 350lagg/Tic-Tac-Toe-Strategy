@@ -19,12 +19,12 @@ private:
     char board[3][3];
 public:
     /*!
-    * \brief Конструктор класса GameField
+    * \brief Основной конструктор класса GameField
     */
     GameField();
 
     /*!
-    * \brief Конструктор класса GameField
+    * \brief Дополнительный конструктор класса GameField
     */
     GameField(char b[3][3]);
 

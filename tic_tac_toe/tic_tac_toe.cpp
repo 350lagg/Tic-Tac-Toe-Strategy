@@ -77,7 +77,7 @@ int TreeNode::countNodes() const
 }
 
 /*!
- * \details Считывание и проверка файлов
+ * \details Поэтапно считывает, проверяет а затем записывает каждую строку входного файла
  */
 Error readInput(const string& filename, char board[3][3], char& player)
 {
@@ -148,7 +148,7 @@ Error readInput(const string& filename, char board[3][3], char& player)
 }
 
 /*!
- * \details Работа главной вычислительной функции для нахождения дерева ходов в крестики-нолики
+ * \details Находит древо ходов для выбранного игрока в игре крестики-нолики с помощью рекурсии
  */
 TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char currentPlayer, int& nodeId)
 {
@@ -304,7 +304,7 @@ TreeNode* generateStrategyTree(GameField position, char chosenPlayer, char curre
 }
 
 /*!
- * \details Запись древа в формат .dot
+ * \details Рекурсивно записывает полученное древо ходов в формате .dot, основываясь на связях между узлами
  */
 void writeDot(TreeNode* node, ofstream& out, int& idCounter)
 {
@@ -336,7 +336,7 @@ void writeDot(TreeNode* node, ofstream& out, int& idCounter)
 }
 
 /*!
- * \details Запись древа ходов в файл в формате .dot
+ * \details Проверяет путь к выходному файлу, записывает полученное древо в формате, необходимом для .dot
  */
 void exportTreeToDot(TreeNode* root, const string& filename)
 {
